@@ -1,33 +1,47 @@
 class ProjectsController < ApplicationController
-  def index
-   @users = User.all
-  end
-  def new
-      @project = Project.new
-  end
-  def create
-      @project = current_user.projects.new(projects_params)
-      if @project.save
-          redirect_to projects_path, :notice => "Your post has been saved"
-      else
-      format.html { render :new }
-      format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-      
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html
+
+  def index
+    @projects = Project.all
+    respond_with(@projects)
   end
+
   def show
-      @project = Project.find(params[:id])
+    respond_with(@project)
   end
+
+  def new
+    @project = Project.new
+    respond_with(@project)
+  end
+
+  def edit
+  end
+
+  def create
+    @project = Project.new(project_params)
+    @project.save
+    respond_with(@project)
+  end
+
+  def update
+    @project.update(project_params)
+    respond_with(@project)
+  end
+
+  def destroy
+    @project.destroy
+    respond_with(@project)
+  end
+
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def new_project
-      @project = Projects.find(params[:id])
-  end
-  
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def projects_params
-      params.require(:project).permit(:user_id, :title, :subtitle, :des, :s1, :s2, :s3, :s4, :s5)
-  end
- 
+    def set_project
+      @project = Project.find(params[:id])
+    end
+
+    def project_params
+      params.require(:project).permit(:title, :subtitle, :des, :s1, :s2, :s3, :s4, :s5)
+    end
 end

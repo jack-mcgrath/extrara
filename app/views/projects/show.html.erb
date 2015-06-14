@@ -1,21 +1,44 @@
-<p>
+<p id="notice"><%= notice %></p>
 
-</p>
 <p>
-  <h1><strong ><%= @project.title %></strong></h1>
-   <strong><%= @project.subtitle %></strong>
+  <strong>Title:</strong>
+  <%= @project.title %>
 </p>
+
 <p>
-  <strong>Description:</strong>
+  <strong>Subtitle:</strong>
+  <%= @project.subtitle %>
+</p>
+
+<p>
+  <strong>Des:</strong>
   <%= @project.des %>
 </p>
+
 <p>
-  <strong>Timeline:</strong><br>
-  <em>step 1</em> <%= @project.s1 %><br>
-  <em>step 2</em> <%= @project.s2 %><br>
-  <em>step 3</em> <%= @project.s3 %><br>
-  <em>step 4</em> <%= @project.s4 %><br>
- 
+  <strong>S1:</strong>
+  <%= @project.s1 %>
 </p>
-  <strong>Created by:</strong>
-  <%= @project.try(:user).try(:name) %>
+
+<p>
+  <strong>S2:</strong>
+  <%= @project.s2 %>
+</p>
+
+<p>
+  <strong>S3:</strong>
+  <%= @project.s3 %>
+</p>
+
+<p>
+  <strong>S4:</strong>
+  <%= @project.s4 %>
+</p>
+
+<p>
+  <strong>S5:</strong>
+  <%= @project.s5 %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
