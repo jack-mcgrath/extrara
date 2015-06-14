@@ -1,0 +1,21 @@
+<p>
+
+</p>
+<p>
+  <h1><strong ><%= @project.title %></strong></h1>
+   <strong><%= @project.subtitle %></strong>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @project.des %>
+</p>
+<p>
+  <strong>Timeline:</strong><br>
+  <em>step 1</em> <%= @project.s1 %><br>
+  <em>step 2</em> <%= @project.s2 %><br>
+  <em>step 3</em> <%= @project.s3 %><br>
+  <em>step 4</em> <%= @project.s4 %><br>
+ 
+</p>
+  <strong>Created by:</strong>
+  <%= @project.try(:user).try(:name) %>

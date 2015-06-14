@@ -1,0 +1,97 @@
+
+
+
+<html lang="en">
+<head>
+ 
+
+  <meta charset="utf-8">
+
+  <title>Extrara Profile</title>
+  <meta name="description" content="Extrara Profile">
+  <meta name="author" content="SitePoint">
+
+<link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
+</head>
+
+
+<body>
+
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="prof-header"> 
+                   <div class="edit">
+                    <a type="button" class="buttons" style="height: 15px;">edit</a>
+                    <center>
+                </center>
+                  </div>
+                    <!-- <ul id="navbar">
+                        
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul> -->
+            </div>
+                <div class="logo">
+                    <button type="button" class="buttons">EXTRARA</ data-dismiss="modal" aria-hidden="true"></button>
+                    <center>
+                </center>
+                  </div>
+
+            </div>
+                <div class="prof-section">
+                    <center>
+                    <img src="https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10945016_10153123187641320_8033075411764439089_n.jpg?oh=0e25ca16f22bce7daf8bd671f5cc04a7&oe=5605BCA3" name="aboutme" width="140" height="140" border="0" class="prof-image"></a>
+                    <h3 class="media-heading">Hi, I'm <%=@user.name%><small> | <%=@user.Location%></small></h3>
+                    <span><strong>Skills: </strong></span>
+                       <%=@user.skills%>
+                    </center>
+                    
+                </div>
+                 <center>
+
+                    <p class="text-left"><strong>About me: </strong><br>
+                        <%=@user.info%></p>
+                    <br>
+                    <p class="text note-touch">Projects</p>
+                    <% if @projects %>
+                     <% @projects.each do |project| %>
+                       <div class="well">
+                      
+                      <h1><%=link_to (project.title), project_path(project)%></h1>
+                      <h2> <%=project.subtitle%></h2>
+                      <p> <%=project.des%></p>
+                      <hr />
+        </div>
+    <% end %>
+<%end%>
+                <div class="modal-footer">
+                <center>
+
+                    <section class="button-container">
+                
+                <p>
+                    <button class="buttons">Project 1</button>
+                    <button class="buttons">Project 2</button>
+                    <button class="buttons">Project 3</button>
+                </p>
+                <p>
+                    <button class="buttons">Project 4</button>
+                    <button class="buttons">Project 5</button>
+                    <button class="buttons">Project 6</button>
+                </center>
+                </p>
+
+            </section>
+            
+                </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
