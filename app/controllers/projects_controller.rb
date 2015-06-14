@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     respond_with(@projects)
+    @users = User.all
   end
 
   def show
@@ -21,9 +22,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.save
-    respond_with(@project)
+    @project = current_user.projects.new(project_params)
+    if @project.save
+        redirect_to projects_path, :notice => "Your post has been saved"
+    end
   end
 
   def update
@@ -42,6 +44,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:title, :subtitle, :des, :s1, :s2, :s3, :s4, :s5)
+      params.require(:project).permit(:user_id, :title, :subtitle, :des, :s1, :s2, :s3, :s4, :s5)
     end
 end

@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20150614212254) do
     t.string   "s5"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
