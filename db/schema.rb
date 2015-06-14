@@ -11,25 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607222326) do
+ActiveRecord::Schema.define(version: 20150601013149) do
 
-  create_table "projects", force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
-    t.string   "subtitle"
-    t.string   "des"
-    t.string   "s1"
-    t.string   "s2"
-    t.string   "s3"
-    t.string   "s4"
-    t.integer  "user_id"
+    t.string   "name"
+    t.string   "info"
+    t.integer  "age"
+    t.string   "skills"
+    t.string   "Location"
   end
 
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
-
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "uses", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -46,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150607222326) do
     t.datetime "updated_at"
   end
 
-  add_index "uses", ["email"], name: "index_uses_on_email", unique: true
-  add_index "uses", ["reset_password_token"], name: "index_uses_on_reset_password_token", unique: true
+  add_index "uses", ["email"], name: "index_uses_on_email", unique: true, using: :btree
+  add_index "uses", ["reset_password_token"], name: "index_uses_on_reset_password_token", unique: true, using: :btree
 
 end
