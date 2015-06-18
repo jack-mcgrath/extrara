@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @project.subtitle %>
+</p>
+
+<p>
+  <strong>Des:</strong>
+  <%= @project.des %>
+</p>
+
+<p>
+  <strong>S1:</strong>
+  <%= @project.s1 %>
+</p>
+
+<p>
+  <strong>S2:</strong>
+  <%= @project.s2 %>
+</p>
+
+<p>
+  <strong>S3:</strong>
+  <%= @project.s3 %>
+</p>
+
+<p>
+  <strong>S4:</strong>
+  <%= @project.s4 %>
+</p>
+
+<p>
+  <strong>S5:</strong>
+  <%= @project.s5 %>
+</p>
+  <strong>Owner:</strong>
+  <%= @project.try(:user).try(:name) %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
