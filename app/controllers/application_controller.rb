@@ -12,5 +12,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :Location
       devise_parameter_sanitizer.for(:account_update) << :skills
       devise_parameter_sanitizer.for(:account_update) << :info
+      devise_parameter_sanitizer.for(:account_update) << :image
   end
 end

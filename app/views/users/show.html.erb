@@ -35,25 +35,23 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about">Forum</a></li>
-            <li><a href="#contact">Projects</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <li><a href="/forum">Forum</a></li>
+            <li><%=link_to("Projects", root_path)%></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/"></a></li>
+            <li><a href="../navbar-static-top/"></a></li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.name%> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
+                <li> <li class="active"> <%=link_to "Profile", user_path(current_user.id)%> <span class="sr-only"></span></li></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/"></a></li>
-            <li><a href="../navbar-static-top/"></a></li>
-            <li class="active"><a href="./">Profile <span class="sr-only">(current)</span></a></li>
+                <li><a> <%= link_to 'Sign out', destroy_user_session_path %>
+</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -61,7 +59,7 @@
 
     <div class="prof-section">
                     <center>
-                    <img src="https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10945016_10153123187641320_8033075411764439089_n.jpg?oh=0e25ca16f22bce7daf8bd671f5cc04a7&oe=5605BCA3" name="aboutme" width="140" height="140" border="0" class="prof-image"></a>
+                    <%= image_tag @user.image.url(:medium) %>
                     <h3 class="media-heading">Hi, I'm <%=@user.name%> <small><%=@user.Location%></small></h3>
                     <span><strong>Skills: </strong></span>
                         <%=@user.skills%>
@@ -105,7 +103,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
