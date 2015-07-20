@@ -5,14 +5,20 @@ Rails.application.routes.draw do
   get 'projects/new' => 'projects#new' 
   get 'projects' => 'projects#index'
   get 'users/show'
+  #get 'static/index' => 'static#index'
 
 
 # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
-
+  #root 'static#index'
+  authenticated :user do
+      root :to => "welcome#index", :as => "authenticated_root"
+      # Rails 4 users must specify the 'as' option to give it a unique name
+      # root :to => "main#dashboard", :as => "authenticated_root"
+  end
+  root 'static#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

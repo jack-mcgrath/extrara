@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   :storage => :s3,
   :s3_credentials => "#{Rails.root}/config/s3.yml",
   :path => ":attachment/:id/:style.:extension",
+  :url => "http://extrara-images.s3.amazonaws.com/:attachment/:id/:style.:extension",
   :bucket => "extrara-images"
   
 end
