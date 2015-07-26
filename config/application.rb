@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Rails.application.config.assets.precompile += ['bootstrap.min.js', 'grayscale.css', 'grayscale.js', 'js.js', 'stats.js', 'jquery.js', 'staticindex.css', 'staticindex2.css', 'font-awesome.min.css']
+
 module Expggo
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
