@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <% if controller_name == "static" && action_name == "index.html.erb" %>
+  <% if controller_name == "static" && action_name == "index" %>
      <%= stylesheet_link_tag "staticindex" %>
      <%= stylesheet_link_tag "staticindex2" %>
      <%= javascript_include_tag "welcome" %>
