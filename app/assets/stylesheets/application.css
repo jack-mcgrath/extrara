@@ -265,6 +265,9 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+
+*=require font-awesome
+
 @font-face {
   font-family: 'Glyphicons Halflings';
 

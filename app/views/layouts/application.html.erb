@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Expggo</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <% if controller_name == "static"%>
      <%= stylesheet_link_tag 'bootstrap.min'%>
      <%= stylesheet_link_tag 'grayscale'%>
@@ -12,6 +13,7 @@
 	 <%= javascript_include_tag "main" %>
 	 <%= javascript_include_tag "stats" %>
 	 <%= javascript_include_tag "util" %>
+	
 
   <% end %>
   <% if controller_name!="static"%> 
