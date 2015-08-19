@@ -10,5 +10,8 @@ class User < ActiveRecord::Base
   :path => ":attachment/:id/:style.:extension",
   :url => "http://extrara-images.s3.amazonaws.com/:attachment/:id/:style.:extension",
   :bucket => "extrara-images"
+  def forem_name
+      name
+  end
   
 end

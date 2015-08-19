@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+*= require 'forem/base'
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -266,7 +267,7 @@ th {
   }
 }
 
-*=require font-awesome
+
 
 @font-face {
   font-family: 'Glyphicons Halflings';

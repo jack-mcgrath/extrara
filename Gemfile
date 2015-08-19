@@ -44,3 +44,5 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'kaminari'
