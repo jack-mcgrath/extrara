@@ -1,5 +1,23 @@
-<h2>Sign up</h2>
 
+
+<h2>Sign up</h2>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1044750408868928',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true) do |f| %>
   <%= devise_error_messages! %>
 
@@ -8,9 +26,14 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :firstname, autofocus: true %>
   </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :lastname, autofocus: true %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @validatable %>

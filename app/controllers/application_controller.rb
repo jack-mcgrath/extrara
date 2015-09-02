@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_parameters, if: :devise_controller?
   protected
   def configure_devise_parameters
-      devise_parameter_sanitizer.for(:account_update) << :name
+      devise_parameter_sanitizer.for(:account_update) << :firstname
+      devise_parameter_sanitizer.for(:account_update) << :lastname
       devise_parameter_sanitizer.for(:account_update) << :age
       devise_parameter_sanitizer.for(:account_update) << :Location
       devise_parameter_sanitizer.for(:account_update) << :skills
