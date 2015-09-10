@@ -7,7 +7,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:image)
     end
-    def fullname
-        (@user.firstname+" "+@user.lastname)
-    end
+    
 end

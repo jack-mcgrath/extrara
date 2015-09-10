@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  # This line mounts Forem's routes at /forums by default.
-  # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
+  # This line mounts Forem's routes at /talk by default.
+  # This means, any requests to the /talk URL of your application will go to Forem::ForumsController#index.
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'projects/new' => 'projects#new' 
   get 'projects' => 'projects#index'
   get 'users/show'
+  #match '/:user' => "users#show", :as => :user_profile <<still working on this.
   #get 'static/index' => 'static#index'
 
 
@@ -75,4 +76,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
 end

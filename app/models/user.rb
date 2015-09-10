@@ -10,11 +10,14 @@ class User < ActiveRecord::Base
   :path => ":attachment/:id/:style.:extension",
   :url => "http://extrara-images.s3.amazonaws.com/:attachment/:id/:style.:extension",
   :bucket => "extrara-images"
-  def fullname
+  def forem_name
+      name
+  end
+  def name
       firstname
   end
-  def forem_name
-      fullname
+  def fullname
+      [firstname, lastname].join(' ')
   end
   
   

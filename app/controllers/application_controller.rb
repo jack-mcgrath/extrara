@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
     current_user
   end
   helper_method :forem_user
+  def forem_name
+      firstname
+  end
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -18,6 +21,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :skills
       devise_parameter_sanitizer.for(:account_update) << :info
       devise_parameter_sanitizer.for(:account_update) << :image
+      devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname <<:age <<:Location 
   end
   private
   def authenticate_user!
