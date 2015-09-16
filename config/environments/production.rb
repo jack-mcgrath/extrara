@@ -7,8 +7,8 @@ Rails.application.configure do
       :storage => :s3,
       :s3_credentials => {
           :bucket => ENV['extrara-images'],
-          :access_key_id => ENV['AKIAIOFKNFGY4OYNBAGQ'],
-          :secret_access_key => ENV['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']
+          :access_key_id => ENV['AKIAJOTEXVV57JKGDPBA'],
+          :secret_access_key => ENV['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']
       }
   }
   # Eager load code on boot. This eager loads most of Rails and

@@ -59,7 +59,7 @@
 
     <div class="prof-section">
                     <center>
-                    <%= image_tag @user.image.url(:medium) %>
+                    <%= image_tag @user.avatar.url(:medium) %>
                     <h3 class="media-heading">Hi, I'm <%=@user.firstname%>!<small><%=@user.Location%></small></h3>
                     <span><strong>Skills: </strong></span>
                         <%=@user.skills%>
