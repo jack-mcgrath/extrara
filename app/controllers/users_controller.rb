@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         @projects = @user.projects.all
     end
     def user_params
-        params.require(:user).permit(:image)
+        params.require(:user).permit(:avatar)
     end
     
 end
