@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :Location
       devise_parameter_sanitizer.for(:account_update) << :skills
       devise_parameter_sanitizer.for(:account_update) << :info
-      devise_parameter_sanitizer.for(:account_update) << :image
-      devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname <<:age <<:Location 
+      devise_parameter_sanitizer.for(:account_update) << :avatar
+      devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname <<:age <<:Location <<:avatar
   end
   private
   def authenticate_user!
