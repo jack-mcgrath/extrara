@@ -24,10 +24,4 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname <<:age <<:Location <<:avatar
   end
   private
-  def authenticate_user!
-      if !current_user
-          flash[:error] = 'You need to sign in before accessing this page!'
-          redirect_to :controller => 'static'
-      end
-  end
 end

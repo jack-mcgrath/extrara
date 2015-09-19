@@ -22,12 +22,21 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   #root 'static#index'
-  authenticated :user do
-      root :to => "welcome#index", :as => "authenticated_root"
+  #authenticated :user do
+      #    root :to => "welcome#index", :as => "authenticated_root"
       # Rails 4 users must specify the 'as' option to give it a unique name
       # root :to => "main#dashboard", :as => "authenticated_root"
+  
+  #root 'static#index'
+  authenticated :user do
+      root :to => "welcome#index"
   end
-  root 'static#index'
+  
+  unauthenticated :user do
+      devise_scope :user do
+          get "/" => "static#index"
+      end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
