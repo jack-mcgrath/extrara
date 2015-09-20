@@ -30,13 +30,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="/">EXTRARA</a>
+            <%=link_to("EXTRARA", root_path, { :class=>"navbar-brand" } )%>
          <!-- <a class="navbar-brand" href="#">EXTRARA</a> -->
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/forum">Discover</a></li>
-            <li><a href="/">Create</a></li>
+            <li><a href="/forums/">Forum</a></li>
+            <li><%=link_to("Explore", root_path)%></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/"></a></li>
@@ -50,104 +50,60 @@
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a> <%= link_to 'Sign out', destroy_user_session_path %></a>
+                <li><a> <%= link_to 'Sign out', destroy_user_session_path %>
 </a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    
-<div class"container">
-    <div class="prof-jumbotron">
-         
-    </div>
-
-  </div>
-  
-
-    <div class="container">
-
-
-    <div class="prof-photo">
-                    
-                        <%= image_tag @user.avatar.url(:medium) %>
-                    
+    <div class="prof-section">
+                    <center>
+                    <%= image_tag @user.avatar.url(:medium) %>
+                    <h3 class="media-heading">Hi, I'm <%=@user.firstname%>!<small><%=@user.Location%></small></h3>
+                    <span><strong>Skills: </strong></span>
+                        <%=@user.skills%>
+                    </center>
                     
     </div>
-    <div class="container">
-        <div class="name-container">
-          <div class="user-name">Hi, I'm <%=current_user.fullname%><br><small></small></div>
 
+     <!--<div class="page-header">
+        <h1></h1>
+      </div>-->
+    <div class="container">  
+      <div class="well">
+        <p><%=@user.info%></p>
       </div>
-      <div class="skills-container">
-                        <span><strong>Skills: </strong></span>
-                        <span class="label label-warning">HTML5</span>
-                        <span class="label label-warning">CSS</span>
-                        <span class="label label-info">Adobe CC</span>
-                        <span class="label label-info">Google</span>
-                        <span class="label label-success">OSX</span>
-                        <span class="label label-success">iOS</span>
-                        <span class="label label-warning">JS</span>
-                        <span class="label label-warning">Keynote</span>
-                        <span class="label label-info">Entreprenuership</span>
-                        
+<!-- Example row of columns -->
 
-      </div>
-
-
-
-     
-    
-
-
-          <div class="row">
-
-            <div class="project-card">
-                <h3 class="page-header">What I'm Working On:</h3>
-            </div>
-            <%if @projects %>
+      <div class="row">
+         <%if @projects %>
           <%@projects.each do |project|%>
-          <div class="container">
-          <div class="row">
-          <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="http://placehold.it/800x500" alt="">
+        <div class="col-md-4">
+         
           <h2><%=link_to (project.title), project_path(project)%></h2>
           <p><%=project.des%></p>
+          <p><a class="btn btn-default" href="/projects/<%=project.id%>" role="button">View details &raquo;</a></p>
 
-          <p><a class="btn btn-default" href="#" role="button">Explore &raquo;</a></p>
-          </div>
-       </div>
-        <%end%>
+        </div>
+         <%end%>
         <%end%>
 
-    
+      </div>
       <hr>
+ 
+
       <footer>
         <p>&copy; EXTRARA 2015</p>
       </footer>
 
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
