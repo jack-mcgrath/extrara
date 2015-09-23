@@ -5,7 +5,9 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*
 *= require 'forem/base'
+*/
 
 html {
   font-family: sans-serif;
