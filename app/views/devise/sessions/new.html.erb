@@ -4,47 +4,60 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Log in</title>
+  <title>Login Page</title>
   <meta name="description" content="Login Page">
   <meta name="author" content="SitePoint">
 
-<link rel="stylesheet" type="text/css" href="bootstrap.css">
-<link href="bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/extrara-assets/css/login.css">
 </head>
 
-<body class="sign">
+<body>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                </div>
+            </div>
             <div class="wrap">
                 <p class="form-title">
                     Sign In</p>
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <form class="login">
+                <%= f.text_field :email, autofocus: true, placeholder: "email" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                <%= f.password_field :password, autocomplete: "off",  placeholder: "password" %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remeber_me %>
-    </div>
-  <% end -%>
+                <%= f.submit "Sign in" %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+                 <% if devise_mapping.rememberable? -%>
+                <div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                     <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 forgot-pass-content">
+                            <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                        </div>
+                    </div>
+                </div>
+                 <% end -%>
+<%end%>
+
+                </form>
             </div>
         </div>
     </div>
 </div>
 </body>
-</html>
