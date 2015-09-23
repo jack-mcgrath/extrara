@@ -1,6 +1,7 @@
 
 
-<h2>Sign up</h2>
+<head><link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/extrara-assets/css/login.css">
+</head>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -18,6 +19,7 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<p class="form-title">Sign Up</p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
 
