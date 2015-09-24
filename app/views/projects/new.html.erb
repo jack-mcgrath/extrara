@@ -76,11 +76,10 @@
 
 <form accept-charset="UTF-8" action="/projects" class="simple_form new_project" id="new_project" method="post" novalidate="novalidate"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hy5tNV3VPXGqWa4BWubz4cX9lK0247kdHRV4bNWaSKg=" /></div>
   
-<%= simple_form_for(@project) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @project, url: projects_path, :html=> { multipart: true } do |f| %>  
 
   <div class="form-inputs">
-    <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title"></label><%= f.input :title %>
+    <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title"></label><%= f.text_field :title %>
 </div>
     
 
@@ -384,8 +383,8 @@
   <div class="form-actions">
 
     <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :avatar %>
+    <%= f.label :avatar %>
+   <%= f.file_field :avatar %>
   </div>
 
   <p></p>
@@ -396,12 +395,7 @@
 </form>
 
 </div>
-
-
-
 <hr>
-
- 
 <div class="container">
 <div class="row">
         <div class="project-help">
@@ -429,20 +423,6 @@
       </footer>
 
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

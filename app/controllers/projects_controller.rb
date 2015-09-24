@@ -37,7 +37,6 @@ class ProjectsController < ApplicationController
     @project.destroy
     respond_with(@project)
   end
-
   private
     def set_project
       @project = Project.find(params[:id])
