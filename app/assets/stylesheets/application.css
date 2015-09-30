@@ -8,6 +8,50 @@
 /*
 *= require 'forem/base'
 */
+.jumbotron {
+  padding: 30px 15px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+  background-size: 100%;
+  background-position: top;
+  background-image: url("https://download.unsplash.com/photo-1428550670225-15f007f6f1ba");
+}
+.jumbotron h1,
+.jumbotron .h1 {
+  color: #fff;
+}
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+  color: #fff;
+}
+.jumbotron > hr {
+  border-top-color: #d5d5d5;
+}
+.container .jumbotron,
+.container-fluid .jumbotron {
+  border-radius: 6px;
+}
+.jumbotron .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding: 48px 0;
+  }
+  .container .jumbotron,
+  .container-fluid .jumbotron {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 63px;
+  }
+}
+
 
 html {
   font-family: sans-serif;
