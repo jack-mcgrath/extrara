@@ -40,7 +40,7 @@
             <li><a href="../navbar/"></a></li>
             <li><a href="../navbar-static-top/"></a></li>
              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Aaron <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.firstname%> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li> <li class="active"> <a href="/users/2">Profile</a> <span class="sr-only"></span></li></li>
                 <li><a href="#">Inbox</a></li>
@@ -79,7 +79,10 @@
 <%= form_for @project, url: projects_path, :html=> { multipart: true } do |f| %>  
 
   <div class="form-inputs">
-    <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title"></label><%= f.text_field :title %>
+    <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title">Title</label>
+      <textarea class="form-control" id="textarea" name="textarea">
+<%= f.text_field :title %></textarea>
+
 </div>
     
 
