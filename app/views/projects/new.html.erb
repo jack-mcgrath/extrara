@@ -71,19 +71,14 @@
 
 <div class="container">
   <div class="">
-
-
-
 <form accept-charset="UTF-8" action="/projects" class="simple_form new_project" id="new_project" method="post" novalidate="novalidate"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hy5tNV3VPXGqWa4BWubz4cX9lK0247kdHRV4bNWaSKg=" /></div>
   
-<%= form_for @project, url: projects_path, :html=> { multipart: true } do |f| %>  
-
+<%= form_for @project, url: projects_path,:class=>'form-control', :html=> { multipart: true } do |f| %>  
+    
   <div class="form-inputs">
     <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title">Title</label>
-      <textarea class="form-control" id="textarea" name="textarea">
-<%= f.text_field :title %></textarea>
-
-</div>
+            <%= f.text_field :title, :class=>"form-control" %>
+              </div>
     
 
     <!--Merge with below<div class="form-group string optional project_subtitle"><label class="string optional control-label" for="project_subtitle"></label><input class="string optional form-control" id="project_subtitle" name="project[subtitle]" type="text" /></div> -->

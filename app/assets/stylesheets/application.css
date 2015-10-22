@@ -8,6 +8,11 @@
 /*
 *= require 'forem/base'
 */
+.logo{
+  width: 150px;
+  margin-top: 17px;
+  margin-right: 15px;
+}
 .jumbotron {
   padding: 30px 15px;
   margin-bottom: 30px;
