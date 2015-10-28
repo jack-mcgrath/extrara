@@ -35,12 +35,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/forums/">Forum</a></li>
-            <li><%=link_to("Explore", root_path )%></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.fullname%> <span class="caret"></span></a>
+            <li><a href="/forums/">Discover</a></li>
+            <li><a href="/projects/new">Create</a><li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/"></a></li>
+            <li><a href="../navbar-static-top/"></a></li>
+                        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.firstname%> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li> <li class="active"> <%=link_to "Profile", user_path(current_user.id)%> <span class="sr-only"></span></li></li>
+                <li> <li class="active"> <%=link_to current_user.fullname, user_path(current_user.id)%> <span class="sr-only"></span></li></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
@@ -49,11 +53,6 @@
                 <li><a href="#"></a></li>
               </ul>
             </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/"></a></li>
-            <li><a href="../navbar-static-top/"></a></li>
-            <li class="active"> <%=link_to "Profile", user_path(current_user.id)%> </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -71,17 +70,22 @@
     <div class="container">
 
       <div class="row">
-         <%if @projects %>
+       <%if @projects %>
           <%@projects.each do |project|%>
+        <div class ="card">
         <div class="col-md-4">
          <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
           <h2><%=link_to (project.title), project_path(project)%></h2>
           <p><%=project.des%></p>
           <p><a class="btn btn-default" href="/projects/<%=project.id%>" role="button">View details &raquo;</a></p>
         </div>
         </div>
+      </div>
          <%end%>
         <%end%>
+
+      </div>
 <div id="map-canvas"></div>
       <hr>
       <footer>

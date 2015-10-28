@@ -5020,6 +5020,8 @@ a.badge:focus {
   }
 }
 .thumbnail {
+  min-height: 370px;
+  max-height: 370px;
   display: block;
   padding: 4px;
   margin-bottom: 20px;
