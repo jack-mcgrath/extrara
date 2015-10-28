@@ -76,7 +76,7 @@
         <div class="col-md-4">
          <div class="thumbnail">
             <img src="http://placehold.it/800x500" alt="">
-          <h2><%=link_to (truncate(project.title, length: 35, separator: ' ')), project_path(project)%></h2>
+          <h2><%=link_to (truncate(project.title, length: 20, separator: ' ')), project_path(project)%></h2>
           <p><%=truncate(project.des, length: 50, separator: ' ')%></p>
           <p><a class="btn btn-default" href="/projects/<%=project.id%>" role="button">View details &raquo;</a></p>
         </div>
