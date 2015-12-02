@@ -86,9 +86,8 @@
 
           <div class="form-group">
             <label class=" control-label" for="textarea">Description</label>
-            <div class="">                     
-              <textarea class="form-control" id="textarea" name="textarea"></textarea>
-            </div>
+            <%= f.text_area :des, :class=>"form-control", :id=>"textarea" %>
+    
           </div> <!--Merge with above--> 
 
            <!--Merge with Below <div class="form-group string optional project_s1"><label class="string optional control-label" for="project_s1">Type</label><input class="string optional form-control" id="project_s1" name="project[s1]" type="text" /></div>
