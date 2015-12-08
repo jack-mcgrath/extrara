@@ -124,7 +124,7 @@
                                  <div class="footer">
                                     <div class="author">
                                         <a class="card-link" href="#">
-                                           <%= image_tag project.try(:user).try(:avatar) %>
+                                           <%= image_tag project.try(:user).try(:avatar).try(:url, :small),:class => "avatar" %>
                                            <span><%= project.try(:user).try(:fullname) %></span>
                                         </a>
                                     </div>
