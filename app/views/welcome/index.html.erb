@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrara</title>
+
+<%= stylesheet_link_tag "bootstrap3.min.css", "gsdk.css", "pe-icon-7-stroke.css","demo.css" %>
+<%= javascript_include_tag "jquery.min.js", "bootstrap.min.js" %>
+    <link href="bootstrap3.min.css" rel="stylesheet" />
+    <link href="gsdk.css" rel="stylesheet"/>
+    
+    <link href="demo.css" rel="stylesheet" />
+    <link href="usercss.css" rel="stylesheet" />
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+     <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>  
+    <link href="pe-icon-7-stroke.css" rel="stylesheet" />  
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <!--  <a class="navbar-brand navbar-link" href="#"> <img src="assets/img/Extrarablk2.png" height="15"></a>-->
+              <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
+                <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="/forums/">Discover </a></li>
+                    <li role="presentation"><a href="/projects/new">Create </a></li>
+                </ul>
+                <ul class="nav navbar-nav drop-nav" id="dp-nav">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><%=current_user.firstname%> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Edit Profile </a></li>
+                            <li><a href="#">Inbox </a></li>
+                            <li class="divider"></li>
+                            <li><%= link_to 'Sign out!', destroy_user_session_path %>                        </ul>
+                    </li>
+                </ul>
+                <div class="col-md-3 dropdown">
+                      <a href="#" class="btn btn-simple dropdown-toggle" data-toggle="dropdown">
+                        Profile
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu dropdown-with-icons">
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-user"></i> Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-mail"></i> Messages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-portfolio"></i> Business Area
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-light"></i> Smart Area
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-tools"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-danger">
+                                <i class="pe-7s-close-circle"></i>
+                                Log out
+                            </a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron hero-technology">
+
+
+        <h1 class="hero-title">Welcome to Extrara</h1>
+        <p class="hero-subtitle">Our mission is to change the way the space industry leverages human interconnectivity</p>
+        <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+    </div>
+
+        <!--<div class="page-header">-->
+
+            <div class="section">
+           <div class="container">
+               <h2 class="section-title">Recent Projects</h2>
+               <hr>
+               <div class="row">
+                <%if @projects %>
+                    <%@projects.limit(9).each do |project|%>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="image">
+                                <img src="assets/img/orion_iii_spaceplane_ortho_by_unusualsuspex-d6yto17.jpg" alt="..." />
+                                <div class="filter">
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-bookmark-o"></i> Bookmark
+                                    </button>
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-align-left"></i> Read Project
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p class="category"><%=link_to (truncate(project.title, length: 20, separator: ' ')), project_path(project)%></p>
+                                <a class="card-link" href="#">
+                                    <h4 class="title"><%=truncate(project.des, length: 50, separator: ' ')%></h4>
+                                </a>
+                                 <div class="footer">
+                                    <div class="author">
+                                        <a class="card-link" href="#">
+                                           <%= image_tag project.try(:user).try(:avatar) %>
+                                           <span><%= project.try(:user).try(:fullname) %></span>
+                                        </a>
+                                    </div>
+                                    <div class="stats pull-right">
+                                        <i class="fa fa-heart"></i> 42
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div> 
+                    <%end%>
+                    <%end%>
+
+                    </div> 
+               </div>
+           </div>
+    </div><!-- section -->
+
+        
+        
+      <!--FOOTER --> 
+        
+        <footer class="footer">
+            <div class="container">
+                <hr>
+                <nav class="pull-left">
+                    <div class="copyright">
+                    &copy; 2014 Extrara Inc
+                </div>
+                    
+                </nav>
+                <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-social btn-pinterest btn-simple">
+                        <i class="fa fa-google-plus-square"></i>
+                    </a>
+                </div>
+               
+            </div>
+        </footer>
+        
+    <!--</div>-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
