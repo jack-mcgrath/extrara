@@ -3671,7 +3671,7 @@ fieldset[disabled] .form-control {
   filter: alpha(opacity=100);
 }
 .card .content {
-  padding: 15px 15px 10px 15px;
+  padding: 150px 15px 10px 15px;
 }
 .card .category {
   font-size: 14px;

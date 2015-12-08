@@ -3624,6 +3624,7 @@ fieldset[disabled] .form-control {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
   background-color: #FFFFFF;
   margin-bottom: 20px;
+  max-height: 390px; 
 }
 .card .image {
   width: 100%;
@@ -3749,8 +3750,8 @@ fieldset[disabled] .form-control {
   margin-top: -70px;
 }
 .card-user .avatar {
-  width: 124px;
-  height: 124px;
+  max-width: 124px;
+  max-height: 124px;
   border: 5px solid #FFFFFF;
   position: relative;
   margin-bottom: 15px;
