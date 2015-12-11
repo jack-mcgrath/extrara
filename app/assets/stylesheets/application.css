@@ -10,11 +10,14 @@
 */
 .logo{
   width: 150px;
-  margin-top: 17px;
+  margin-top: 27px;
   margin-right: 15px;
 }
-
+.buttonstuff{
+  text-align: center;
+}
 .prof-jumbotron {
+  text-align: center;
   height: 200px;
   margin-bottom:;
   color: inherit;
@@ -23,17 +26,29 @@
   background-position: top;
   background-image: url("https://download.unsplash.com/photo-1428550670225-15f007f6f1ba");
 }
+.hero-title{
+  text-align: center;
+}
+.hero-subtitle{
+  text-align: center;
+}
+.hero-button{
+  text-align: center;
+}
 .prof-jumbotron h1,
 .jumbotron .h1 {
+  text-align: center;
   color: #fff;
 }
 .prof-jumbotron p {
+  text-align: center;
   margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200;
   color: #fff;
 }
 .prof-jumbotron > hr {
+  text-align: center;
   border-top-color: #d5d5d5;
 }
 .container .prof-jumbotron,

@@ -35,7 +35,7 @@
                     <li role="presentation"><a href="/projects/new">Create </a></li>
                 </ul>
                 <ul class="nav navbar-nav drop-nav" id="dp-nav">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><%=current_user.firstname%> <span class="caret"></span></a>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Profile<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Edit Profile </a></li>
                             <li><a href="#">Inbox </a></li>
@@ -43,45 +43,6 @@
                             <li><%= link_to 'Sign out!', destroy_user_session_path %>                        </ul>
                     </li>
                 </ul>
-                <div class="col-md-3 dropdown">
-                      <a href="#" class="btn btn-simple dropdown-toggle" data-toggle="dropdown">
-                        Profile
-                        <b class="caret"></b>
-                      </a>
-                      <ul class="dropdown-menu dropdown-with-icons">
-                        <li>
-                            <a href="#">
-                                <i class="pe-7s-user"></i> Account
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="pe-7s-mail"></i> Messages
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="pe-7s-portfolio"></i> Business Area
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="pe-7s-light"></i> Smart Area
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="pe-7s-tools"></i> Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-danger">
-                                <i class="pe-7s-close-circle"></i>
-                                Log out
-                            </a>
-                        </li>
-                      </ul>
-                </div>
             </div>
         </div>
     </nav>
@@ -90,7 +51,10 @@
 
         <h1 class="hero-title">Welcome to Extrara</h1>
         <p class="hero-subtitle">Our mission is to change the way the space industry leverages human interconnectivity</p>
-        <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+        <div class ="buttonstuff">
+            <a class="btn btn-primary btn-lg hero-button hero-subtitle" role="button" href="/projects/new">Create Project</a>
+
+        </div>
     </div>
 
         <!--<div class="page-header">-->
