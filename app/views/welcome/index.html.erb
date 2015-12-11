@@ -119,7 +119,10 @@
                             <div class="content">
                                 <p class="category"><%=link_to (truncate(project.title, length: 20, separator: ' ')), project_path(project)%></p>
                                 <a class="card-link" href="#">
-                                    <h4 class="title"><%=truncate(project.des, length: 50, separator: ' ')%></h4>
+                                    <h4 class="title"><%=truncate(project.des, length: 20, separator: ' ')%></h4>
+                                     <%if project.des==""%>
+                                          <h4 class="title"><%="no description yet"%></h4>
+                                     <%end%>  
                                 </a>
                                  <div class="footer">
                                     <div class="author">
