@@ -1,0 +1,36 @@
+/* line 1, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+.forum .title {
+  font-size: 25px;
+}
+
+/* line 5, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+.forum #description {
+  display: block;
+  margin: 10px 0px;
+  padding: 5px;
+  background: #efefef;
+}
+
+/* line 12, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+.forums thead th {
+  background: #0088cc;
+  color: white;
+  padding: 10px;
+  border-bottom: 3px solid #232323;
+  font-size: 110%;
+}
+
+/* line 20, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+.forums .last_post {
+  font-style: italic;
+}
+/* line 23, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+.forums .last_post time {
+  color: #aaa;
+  font-size: 75%;
+}
+
+/* line 29, /Users/jackmcgrath/.bundler/ruby/2.0.0/forem-bootstrap-10be50afc1d0/app/assets/stylesheets/forem/bootstrap/forums.css.scss */
+#forum #forum_topic_links {
+  margin-bottom: 10px;
+}
