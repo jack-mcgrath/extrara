@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Home</title>
+
+    <link href="bootstrap.css" rel="stylesheet">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/forums/">Discover</a></li>
+            <li><a href="/projects/new">Create</a><li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/"></a></li>
+            <li><a href="../navbar-static-top/"></a></li>
+                        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.firstname%> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li> <li class="active"> <%=link_to current_user.fullname, user_path(current_user.id)%> <span class="sr-only"></span></li></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a> <%= link_to 'fadsf', destroy_user_session_path %>
+                <li><a href="#"></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+<div class="jumbotron">
+      <div class="container">
+        <h1 class="text-center">Share your work with the world</h1>
+        <p class="text-center">Extrara Projects help you organize and communicate your work with a global community.</p>
+        <p class="text-center"><a class="btn btn-primary btn-lg" href="projects/new" role="button">Create</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+       <%if @projects %>
+          <%@projects.each do |project|%>
+        <div class ="card">
+        <div class="col-md-4">
+         <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+          <h2><%=link_to (truncate(project.title, length: 10, separator: ' ')), project_path(project)%></h2>
+          <p><%=truncate(project.des, length: 10, separator: ' ')%></p>
+          <p><a class="btn btn-default" href="/projects/<%=project.id%>" role="button">View details &raquo;</a></p>
+        </div>
+        </div>
+      </div>
+         <%end%>
+        <%end%>
+
+      </div>
+<div id="map-canvas"></div>
+      <hr>
+      <footer>
+        <p>&copy; EXTRARA 2015</p>
+      </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
