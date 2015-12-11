@@ -1,233 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1 </title>
 
-    <title>Project</title>
 
-    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/gsdk.css" rel="stylesheet"/>
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="assets/css/usercss.css" rel="stylesheet" />
 
-  </head>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+     <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>  
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />  
+</head>
 
-  <body class="">
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-    <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/forums/">Discover</a></li>
-            <li><a href="/projects/new">Create</a></li>
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/"></a></li>
-            <li><a href="../navbar-static-top/"></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.firstname%> <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Log Out</a></li>
-                <li><a href="#"></a></li>
-              </ul>
-            </li> <span class="sr-only">(current)</span></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>  
-
-
-<!-- Page Content -->
-    <div class="container">
-
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="">
-                <h1 class="page-header"><%= @project.title %>
-                    <small> <%= @project.try(:user).try(:name) %></small>
-                </h1>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" >
+        <div class="container" style="min-height:70px">
+            <div class="navbar-header">
+                <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
+                <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
             </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Portfolio Item Row -->
-
-        <div class="row">
-
-            <div class="col-md-8">
-                <!--<img class="img-responsive" src="http://placehold.it/750x500" alt="">-->
-                <%= image_tag @project.avatar.url(:large) %>
-            </div>
-
-            <div class="col-md-4">
-                <h3>Project Description</h3>
-                <p><%= @project.des %></p>
-                <h3>Project Details</h3>
-                <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">Discover </a></li>
+                    <li role="presentation"><a href="#">Create </a></li>
                 </ul>
+                <ul class="nav navbar-nav drop-nav" id="dp-nav">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Edit Profile </a></li>
+                            <li><a href="#">Inbox </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Sign Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="col-md-3 dropdown">
+                      <a href="#" class="btn btn-simple dropdown-toggle" data-toggle="dropdown">
+                        Profile
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu dropdown-with-icons">
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-user"></i> Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-mail"></i> Messages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-portfolio"></i> Business Area
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-light"></i> Smart Area
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-tools"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-danger">
+                                <i class="pe-7s-close-circle"></i>
+                                Log out
+                            </a>
+                        </li>
+                      </ul>
+                </div>
             </div>
-
         </div>
-        <!-- /.row -->
+    </nav>
 
-<hr>
+<div class="wrapper">
+    <div class="parallax">
+        <div class="parallax-image" style="max-height:550px">
+            <img src="/images/spaceastronaut.jpg" alt="..." />
+        </div>             
+    </div>
 
+     <div class="section">
+           <div class="container">
+               <div class="row">
+                  <div class="col-md-8 bottom-border">
+                    <h1 class="title title-blog">Project Title: Short blurb about the project</h1> 
+                    <p>Some recent reports, though, might make you think Mom’s take on breakfast is about as credible as other old wives’ tales. </p>
 
+                    <p>Q. If I want to lose weight, why not skip breakfast? After all, two meals have fewer calories than three.</p>
 
-        <div class="container">
-  <div class="row">
-    
-        <div class="timeline-centered">
+                    <p>A. The desire to lose weight is one of the most frequently cited reasons for skipping breakfast. But many observational studies have found that people who skip breakfast are more likely to be overweight. The theory is that they more than make up for the missed calories in the morning by eating more at lunch or snacking all day.
 
-        <article class="timeline-entry">
+                    <blockquote> 
+                           <p>
+                           “Overall, there’s still a similar intake or a lesser intake (of calories) over the whole day,”
+                           </p>
+                           <small>
+                           Krista Casazza, PhD, RD. 
+                           </small>
+                    </blockquote>
 
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-success">
-                    <i class="entypo-feather"></i>
+                    <p>Another small randomized trial published by Cornell University researchers in Physiology & Behavior in 2013 found that college students ate about 145 calories more at lunch when they ate nothing in the morning than they did on a day when they ate breakfast. Considering that their breakfasts averaged about 625 calories, skipping it still resulted in a savings of about 450 calories by day’s end, according to the study.</p>
+                    <br>
+                    <br>
                 </div>
 
-                <div class="timeline-label">
-                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
-                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
-                </div>
-            </div>
+                <div class="col-md-3 col-md-offset-1">
+                  <div class="social-buttons"> 
+                      <h3 class="title title-blog">Shares &middot; 3,4K</h3>
+                      <a href="#" class="btn btn-social btn-round btn-fill btn-facebook">
+                          <i class="fa fa-facebook"></i>
+                      </a>
+                      <a href="#"  class="btn btn-social btn-round btn-fill btn-twitter">
+                          <i class="fa fa-twitter"></i>
+                      </a>
+                      <a href="#" class="btn btn-social btn-round btn-fill btn-google">
+                          <i class="fa fa-google-plus"></i>
+                      </a>
+                      <a href="#" class="btn btn-social btn-round btn-fill btn-reddit">
+                          <i class="fa fa-reddit"></i>
+                      </a>
+                  </div>
 
-        </article>
+            
+                  <h3 class="title title-blog">Tags </h3>
+                  <span class="label label-warning label-fill">Space</span>
+                  <span class="label label-warning label-fill">Launch Vehichles</span>
+                  <span class="label label-warning label-fill">EVA</span>
+                  <span class="label label-warning label-fill">Exploration</span>
 
-
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-secondary">
-                    <i class="entypo-suitcase"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#">Job Meeting</a></h2>
-                    <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
-                </div>
-            </div>
-
-        </article>
-
-
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-info">
-                    <i class="entypo-location"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
-
-                    <blockquote>Great place, feeling like in home.</blockquote>
-
-                    
-                </div>
-            </div>
-
-        </article>
-
-
-        <article class="timeline-entry">
-
-            <div class="timeline-entry-inner">
-
-                <div class="timeline-icon bg-warning">
-                    <i class="entypo-camera"></i>
-                </div>
-
-                <div class="timeline-label">
-                    <h2><a href="#">Arber Nushi</a> <span>changed his</span> <a href="#">Profile Picture</a></h2>
-
-                    <blockquote>Pianoforte principles our unaffected not for astonished travelling are particular.</blockquote>
-
-                    <img src="http://themes.laborator.co/neon/assets/images/timeline-image-3.png" class="img-responsive img-rounded full-width">
+                  <h3 class="title title-blog">Author</h3>
+                  <div class="media media-author">
+                      <a class="pull-left" href="#">
+                        <div class="avatar">
+                            <img class="media-object" src="assets/img/exprofile.png" alt="...">
+                        </div>
+                      </a>
+                      <div class="media-body">
+                        <h6 class="media-heading">Aaron Judd</h6>
+                        <p class="text-muted">Moderator</p>
+                      </div>
+                      <p>Tim thinks communication is key and he enjoys all the feedback you give him</p>
+                      <button class="btn btn-round btn-info btn-sm">
+                                Follow
+                      </button>
+                      <button class="btn btn-round btn-success btn-sm">
+                                Contact
+                      </button>
+                  </div>
                 </div>
             </div>
-
-        </article><div class="container">
-  <div class="row">
-  </div>
-
- <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
-
-
-        <!-- Related Projects Row -->
-
+          </div>
+    </div>
+    <div class="section">
+      <div class="container container-comments">
+        <h3 class="title">Comments</h3>
         <div class="row">
-
-            <div class="project-card">
-                <h3 class="page-header">Related Projects</h3>
+                <div class="col-md-8 ">
+                    <div class="media-area">
+                        <div class="media">
+                              <a class="pull-left" href="#">
+                               <div class="avatar">
+                                    <img class="media-object" src="assets/img/exprofile.png" alt="...">
+                               </div>
+                              </a>
+                              <div class="media-body">
+                                <h4 class="media-heading">Creative Tim</h4>
+                                <h6 class="pull-right text-muted">Sep 11, 11:53 AM</h6>
+                                
+                                <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                <p> Don't forget, You're Awesome!</p>
+                                
+                                <div class="media-footer">
+                                    <a href="#" class="btn btn-info btn-simple "> <i class="fa fa-reply"></i> Reply</a>
+                                    <a href="#" class="btn btn-danger btn-simple pull-right">
+                                         <i class="fa fa-heart"></i> 243
+                                    </a>
+                                </div> 
+                              </div>
+                        </div> <!-- end media -->
+                        
+                        <!--  Comment                    -->
+                        <div class="media">
+                          <a class="pull-left" href="#">
+                              <div class="avatar">
+                                 <img class="media-object" alt="Tim Picture" src="assets/img/default-avatar.png">
+                              </div>
+                          </a>
+                          <div class="media-body">                      
+                                
+                             <h4 class="media-heading">Drake</h4>
+                             <h6 class="pull-right text-muted">Sep 11, 11:54 AM</h6>
+                            
+                             <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                             <p> Don't forget, You're Awesome!</p>
+                            
+                             <div class="media-footer">
+                                 <a href="#" class="btn btn-info btn-simple "> <i class="fa fa-reply"></i> Reply</a>                          
+                                 <a href="#" class="btn btn-default btn-simple pull-right">
+                                     <i class="fa fa-heart-o"></i> 23
+                                 </a>    
+                             </div> 
+                             <div class="media">
+                                  <a class="pull-left" href="#">
+                                      <div class="avatar">
+                                            <img class="media-object" alt="64x64" src="assets/img/default-avatar.png">
+                                      </div>
+                                  </a>
+                                  <div class="media-body">
+                                        <h4 class="media-heading">Rick Ross</h4>
+                                        <h6 class="pull-right text-muted">Sep 11, 11:56 AM</h6>
+                                       
+                                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                        <p> Don't forget, You're Awesome!</p>
+                                        
+                                        <div class="media-footer">
+                                            <a href="#" class="btn btn-info btn-simple "> <i class="fa fa-reply"></i> Reply</a>                                    
+                                            <a href="#" class="btn btn-danger btn-simple pull-right">
+                                                 <i class="fa fa-heart"></i> 43
+                                            </a>
+                                        </div>    
+                                  </div>
+                              </div> <!-- end media -->
+                          </div>
+                        </div> <!-- end media -->
+                       <div class="media media-post">
+                              <a class="pull-left author" href="#">
+                                  <div class="avatar">
+                                        <img class="media-object" alt="64x64" src="assets/img/default-avatar.png">
+                                  </div>
+                              </a>
+                              <div class="media-body">                                 
+                                    <textarea class="form-control" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                                    <div class="media-footer">
+                                         <a href="#" class="btn btn-info btn-round btn-fill btn-wd pull-right">Post Comment</a>   
+                                    </div>                              
+                              </div>
+                          </div>
+                    </div> <!-- end media-area -->
+                </div> <!-- end col-md-8 -->
             </div>
-
-            <div class="row">
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="http://placehold.it/800x500" alt="">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-       </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="http://placehold.it/800x500" alt="">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-       </div>
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="http://placehold.it/800x500" alt="">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
       </div>
+    </div>
+    
+      
+   
+        <div class="section">
+           <div class="container">
+               <h2 class="section-title">Similar Projects</h2>
+               <hr>
+               <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="image">
+                                <img src="assets/img/orion_iii_spaceplane_ortho_by_unusualsuspex-d6yto17.jpg" alt="..." />
+                                <div class="filter">
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-bookmark-o"></i> Bookmark
+                                    </button>
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-align-left"></i> Read Project
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p class="category">Title</p>
+                                <a class="card-link" href="#">
+                                    <h4 class="title">Get Shit Done Kit PRO, the most wanted bootstrap kit is here and... </h4>
+                                </a>
+                                 <div class="footer">
+                                    <div class="author">
+                                        <a class="card-link" href="#">
+                                           <img src="assets/img/exprofile.png" alt="..." class="avatar">
+                                           <span> Aaron </span>
+                                        </a>
+                                    </div>
+                                    <div class="stats pull-right">
+                                        <i class="fa fa-heart"></i> 42
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div> 
 
-  <hr>
-      <footer>
-        <p>&copy; EXTRARA 2015</p>
-      </footer>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <div class="image">
+                                <img src="assets/img/orion_iii_spaceplane_ortho_by_unusualsuspex-d6yto17.jpg" alt="..." />
+                                <div class="filter">
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-bookmark-o"></i> Bookmark
+                                    </button>
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-align-left"></i> Read Project
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p class="category">Title</p>
+                                <a class="card-link" href="#">
+                                    <h4 class="title">This is a very beautiful field in our office, we would love to hear... </h4>
+                                </a>
+                                 <div class="footer">
+                                    <div class="author">
+                                        <a class="card-link" href="#">
+                                           <img src="assets/img/exprofile.png" alt="..." class="avatar">
+                                           <span> Aaron </span>
+                                        </a>
+                                    </div>
+                                    <div class="stats pull-right">
+                                        <i class="fa fa-heart-o"></i> 42
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div> 
+                    
+                     <div class="col-md-4">
+                        <div class="card">
+                            <div class="image">
+                                <img src="assets/img/orion_iii_spaceplane_ortho_by_unusualsuspex-d6yto17.jpg" alt="..." />
+                                <div class="filter">
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-bookmark-o"></i> Bookmark
+                                    </button>
+                                    <button type="button" class="btn btn-neutral btn-simple">
+                                        <i class="fa fa-align-left"></i> Read Project
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p class="category">Title</p>
+                                <a class="card-link" href="#">
+                                    <h4 class="title">This is the most wanted bootstrap kit. We would love to hear your... </h4>
+                                </a>
+                                 <div class="footer">
+                                    <div class="author">
+                                        <a class="card-link" href="#">
+                                           <img src="assets/img/exprofile.png" alt="..." class="avatar">
+                                           <span> Aaron </span>
+                                        </a>
+                                    </div>
+                                    <div class="stats pull-right">
+                                        <i class="fa fa-heart-o"></i> 42
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div> 
+               </div>
+           </div>
+    </div><!-- section -->
+
+     <!--FOOTER --> 
+        
+        <footer class="footer">
+            <div class="container">
+              <hr>
+                <nav class="pull-left">
+                    <div class="copyright">
+                    &copy; 2014 Extrara Inc
+                </div>
+                    
+                </nav>
+                <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-social btn-pinterest btn-simple">
+                        <i class="fa fa-google-plus-square"></i>
+                    </a>
+                </div>
+               
+            </div>
+        </footer>
+        
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+     <!-- wrapper --> 
+</body>
+    <!--  jQuery and Bootstrap core files    -->
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+	<script src="../bootstrap3/js/bootstrap.min.js" type="text/javascript"></script>
+		
+	<!--  Plugins -->
+	<script src="../assets/js/gsdk-checkbox.js"></script>
+	<script src="../assets/js/gsdk-morphing.js"></script>
+	<script src="../assets/js/gsdk-radio.js"></script>
+	<script src="../assets/js/gsdk-bootstrapswitch.js"></script>
+	<script src="../assets/js/bootstrap-select.js"></script>
+	<script src="../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/js/chartist.min.js"></script>
+    <script src="../assets/js/jquery.tagsinput.js"></script>
+    <script src="../assets/js/retina.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
+	<!--  Get Shit Done Kit PRO Core javascript 	 -->
+	<script src="../assets/js/get-shit-done.js"></script>
+    
+    <script type="text/javascript">
+        var big_image;
+        $().ready(function(){
+            responsive = $(window).width();
+            
+            if (responsive >= 768){
+                big_image = $('.parallax-image').find('img');
+                
+                $(window).on('scroll',function(){           
+                    parallax();
+                });
+            }
+            
+        });
+        
+       var parallax = function() {
+            var current_scroll = $(this).scrollTop();
+            
+            oVal = ($(window).scrollTop() / 3); 
+            big_image.css('top',oVal);
+        };
+
+    </script>
+    
+    <!-- If you are using TypeKit.com uncomment this code otherwise you can delete it -->
+    <!--
+    <script src="https://use.typekit.net/[your kit code here].js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    -->
+    
 </html>
+
+
