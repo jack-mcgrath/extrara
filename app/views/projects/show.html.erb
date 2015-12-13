@@ -2,6 +2,7 @@
 <html>
 
 <head>
+     <link href="assets/css/gsdk.css" rel="stylesheet"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P1 </title>
@@ -17,7 +18,8 @@
      <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"> 
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>  
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />  
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" /> 
+       <link href="/stylesheets/gsdk.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -163,7 +165,10 @@
                         <div class="media">
                           <a class="pull-left" href="#">
                               <div class="avatar">
-                                 <img class="media-object" alt="Tim Picture" src="assets/img/default-avatar.png">
+                               <% if @project.user.present? %>
+                            <%=image_tag @project.try(:user).try(:avatar).url(:thumb), :class=>"media-object"%>
+                          <% end %>
+
                               </div>
                           </a>
                           <div class="media-body">                      
@@ -183,7 +188,10 @@
                              <div class="media">
                                   <a class="pull-left" href="#">
                                       <div class="avatar">
-                                            <img class="media-object" alt="64x64" src="assets/img/default-avatar.png">
+                                       <% if @project.user.present? %>
+                            <%=image_tag @project.try(:user).try(:avatar).url(:thumb), :class=>"media-object"%>
+                          <% end %>
+
                                       </div>
                                   </a>
                                   <div class="media-body">
@@ -412,7 +420,7 @@
     <script src="https://use.typekit.net/[your kit code here].js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     -->
-    
+       <link href="assets/css/gsdk.css" rel="stylesheet"/>
 </html>
 
 
