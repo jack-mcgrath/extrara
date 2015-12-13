@@ -10,9 +10,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Profile</title>
+    <title>Proile</title>
 
-    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootstrap3.min.css" rel="stylesheet" />
+    <link href="/stylesheets/gsdk.css" rel="stylesheet"/>
+    
+    <link href="demo.css" rel="stylesheet" />
+    <link href="usercss.css" rel="stylesheet" />
+ <link href="bootstrap.css" rel="stylesheet">
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -21,7 +26,31 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <!--  <a class="navbar-brand navbar-link" href="#"> <img src="assets/img/Extrarablk2.png" height="15"></a>-->
+              <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
+                <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="/forums/">Discover </a></li>
+                    <li role="presentation"><a href="/projects/new">Create </a></li>
+                </ul>
+                <ul class="nav navbar-nav drop-nav" id="dp-nav">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Profile<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Edit Profile </a></li>
+                            <li><a href="#">Inbox </a></li>
+                            <li class="divider"></li>
+                            <li><%= link_to 'Sign out!', destroy_user_session_path %>                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,7 +62,7 @@
             <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
 
          <!-- <a class="navbar-brand" href="#">EXTRARA</a> -->
-        </div>
+     <!--   </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/forums/">Discover</a></li>
@@ -55,8 +84,8 @@
 </a></li>
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+  <!--    </div>
+    </nav>-->
 
     
 <div class"container">
