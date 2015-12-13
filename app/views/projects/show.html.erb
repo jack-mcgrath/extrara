@@ -58,12 +58,8 @@
            <div class="container">
                <div class="row">
                   <div class="col-md-8 bottom-border">
-                    <h1 class="title title-blog">Project Title: Short blurb about the project</h1> 
-                    <p>Some recent reports, though, might make you think Mom’s take on breakfast is about as credible as other old wives’ tales. </p>
-
-                    <p>Q. If I want to lose weight, why not skip breakfast? After all, two meals have fewer calories than three.</p>
-
-                    <p>A. The desire to lose weight is one of the most frequently cited reasons for skipping breakfast. But many observational studies have found that people who skip breakfast are more likely to be overweight. The theory is that they more than make up for the missed calories in the morning by eating more at lunch or snacking all day.
+                    <h1 class="title title-blog"><%=@project.try(:title)%>: <%=@project.try(:subtitle)%></h1> 
+                    <p><%=@project.try(:des)%></p>
 
                     <blockquote> 
                            <p>
@@ -107,11 +103,11 @@
                   <div class="media media-author">
                       <a class="pull-left" href="#">
                         <div class="avatar">
-                            <img class="media-object" src="assets/img/exprofile.png" alt="...">
+                            <%=image_tag @project.try(:user).avatar.url(:small)%>
                         </div>
                       </a>
                       <div class="media-body">
-                        <h6 class="media-heading">Aaron Judd</h6>
+                        <h6 class="media-heading"><%=@project.try(:user).try(:fullname)%></h6>
                         <p class="text-muted">Moderator</p>
                       </div>
                       <p>Tim thinks communication is key and he enjoys all the feedback you give him</p>
