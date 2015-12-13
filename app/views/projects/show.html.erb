@@ -103,11 +103,17 @@
                   <div class="media media-author">
                       <a class="pull-left" href="#">
                         <div class="avatar">
-                            <%=image_tag @project.try(:user).avatar.url(:small)%>
+                          <% if @project.user.present? %>
+                            <%=image_tag @project.try(:user).try(:avatar).url(:small)%>
+                          <% end %>
                         </div>
                       </a>
                       <div class="media-body">
-                        <h6 class="media-heading"><%=@project.try(:user).try(:fullname)%></h6>
+                        <h6 class="media-heading">
+                          <%if @project.user.present?%>
+                          <%=link_to(@project.try(:user).try(:fullname), user_path(@project.try(:user).try(:id)))%>
+                          <%end%>
+                        </h6>
                         <p class="text-muted">Moderator</p>
                       </div>
                       <p>Tim thinks communication is key and he enjoys all the feedback you give him</p>
