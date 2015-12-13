@@ -1,431 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1 </title>
 
-    <title>New Project</title>
 
-   <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/extrara-assets/css/bootstrap.css">    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/gsdk.css" rel="stylesheet"/>
+    
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="assets/css/usercss.css" rel="stylesheet" />
 
-  </head>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+     <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>  
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />  
+</head>
 
-  <body>
-
-    <!-- Fixed navbar -->
+<body>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-             <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
-         <!-- <a class="navbar-brand" href="#">EXTRARA</a> -->
+        <div class="container">
+            <div class="navbar-header">
+                <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path%>
+                <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="#">Discover </a></li>
+                    <li role="presentation"><a href="#">Create </a></li>
+                </ul>
+                <ul class="nav navbar-nav drop-nav" id="dp-nav">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><%=link_to "My Profile", user_path(current_user.id)%>/li>
+                            <li><a href="#">Inbox </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Sign Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/forums/">Discover</a></li>
-            <li><a href="/projects/new">Create</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/"></a></li>
-            <li><a href="../navbar-static-top/"></a></li>
-             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=current_user.firstname%> <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li> <li class="active"> <%=link_to current_user.firstname, user_path(current_user.id)%> <span class="sr-only"></span></li></li>
-                <li><a href="#">Inbox</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header"></li>
-                <li><a href="#">Edit</a></li>
-                <li><a> <a href="/users/sign_out">Sign out</a>
-</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
-
-    <div class"container">
-    <div class="prof-jumbotron">
-      <div class="container">
-        <div class="NewProjectTitle">What are you working on?</div>
-      </div>
-         
+    
+    
+    <div class="jumbotron hero-technology">
+        
+        <h5 class="text-center text-muted hero-title">"The dream of yesterday is the hope of today and the reality of tomorrow." </h5>
+        <h6 class="text-center text-muted hero-title">- <strong>Robert Goddard</strong> </h6>
+        <p><a class="btn btn-success hero-button" role="button" href="">Get Started</a></p>
     </div>
+    <div class="container">
+        <form class="bootstrap-form-with-validation">
+            <h2 class="text-center">Start your project</h2>
+            <h3 class="text-center text-muted">Extrara Projects allow you to publish your work, validate an idea and seek peer feedback. </h3>
+            <hr>
+        </form>
+        <div class="section">
+           <div class="container">
+               <!--<h2 class="section-title">Start your project</h2>
+                <hr>-->
 
+               <div class="row">
+                   <div class="col-md-6">
+                       <!--<p>
+                           You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.<br><br>
+                        </p>-->
+                        <%= form_for @project, url: projects_path,:class=>'form-control', :html=> { multipart: true } do |f| %>  
+                        <form role="form" id="contact-form" method="post">
+                            <div class="form-group">
+                                <label for="name">Project Name</label>
+                                <%= f.text_field :title, :class=>"form-control", :id=>"name", :placeholder=>"Give it a name. Give it life!" %>
 
-  </div>
-
-
-
-  <!--BEGINNING OF FORM-->
-
-<div class="container">
-  <div class="">
-<form accept-charset="UTF-8" action="/projects" class="simple_form new_project" id="new_project" method="post" novalidate="novalidate"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hy5tNV3VPXGqWa4BWubz4cX9lK0247kdHRV4bNWaSKg=" /></div>
-  
-<%= form_for @project, url: projects_path,:class=>'form-control', :html=> { multipart: true } do |f| %>  
-    
-  <div class="form-inputs">
-    <div class="form-group string optional project_title"><label class="string optional control-label" for="project_title">Title</label>
-            <%= f.text_field :title, :class=>"form-control" %>
-              </div>
-    
-
-    <!--Merge with below<div class="form-group string optional project_subtitle"><label class="string optional control-label" for="project_subtitle"></label><input class="string optional form-control" id="project_subtitle" name="project[subtitle]" type="text" /></div> -->
-          
-
-          <div class="form-group">
-            <label class=" control-label" for="textarea">Description</label>
-            <%= f.text_area :des, :class=>"form-control", :id=>"textarea" %>
-    
-          </div> <!--Merge with above--> 
-
-           <!--Merge with Below <div class="form-group string optional project_s1"><label class="string optional control-label" for="project_s1">Type</label><input class="string optional form-control" id="project_s1" name="project[s1]" type="text" /></div>
-    <div class="form-group">-->
-
-
-           <label class=" control-label" for="selectbasic">Type</label>
-            <div class="">
-              <select id="selectbasic" name="selectbasic" class="form-control">
-                <option value="0"></option>
-                <option value="1">Software</option>
-                <option value="3">Hardware</option>
-                <option value="4">Astronomy</option>
-                <option value="5">Rocketry</option>
-                <option value="6">3D Printing</option>
-                <option value="7">Other</option>
-                
-  
-
-              </select>
+                               <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Give it a name. Give it life!"/>-->
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Short Description</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Simple one-liner"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone number"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Larger Description</label>
+                                <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                            </div>
+                            <div class="submit">
+                                <input type="submit" class="btn btn-info btn-fill" value="Create" />
+                            </div>
+                        </form>
+                        <%end%>
+                   </div>
+                   <div class="col-md-6">
+                        <!-- Nav tabs -->
+                        <div class="tim-title">
+                            <br>
+                        </div>
+                        <ul class="nav nav-icons" role="tablist">
+                          <li class="active">
+                            <a href="#smart-vertical-logo" role="tab" data-toggle="tab">
+                                 <i class="fa fa-lightbulb-o"></i><br> 
+                                 Smart Area
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#map-vertical-logo" role="tab" data-toggle="tab">
+                                <i class="fa fa-map-marker"></i><br>
+                                Location
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#legal-vertical-logo" role="tab" data-toggle="tab">
+                                <i class="fa fa-legal"></i><br>
+                                Legal Info 
+                            </a>
+                          </li>
+                          <li>
+                           <a href="#help-vertical-logo" role="tab" data-toggle="tab">
+                                <i class="fa fa-life-ring"></i><br>
+                                Help Center
+                           </a>
+                          </li>
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="smart-vertical-logo">
+                                  <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. With a smooth metal surface that seamlessly meets the new Retina HD display. It’s one continuous form where hardware and software function in perfect unison, creating a new generation of phone that’s better by any measure.</p>
+                            </div>
+                            <div class="tab-pane" id="map-vertical-logo">
+                                <p>The first thing you notice when you hold the phone is how great it feels in your hand. The cover glass curves down around the sides to meet the anodized aluminum enclosure in a remarkable, simplified design. There are no distinct edges. No gaps. Just a smooth, seamless bond of metal and glass that feels like one continuous surface.</p>
+                             </div>
+                             <div class="tab-pane" id="legal-vertical-logo">
+                                 <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. With a smooth metal surface that seamlessly meets the new Retina HD display. </p>
+                                 <p> Just a smooth, seamless bond of metal and glass that feels like one continuous surface. </p>
+                              </div>
+                              <div class="tab-pane" id="help-vertical-logo">
+                                <p>From the seamless transition of glass and metal to the streamlined profile, every detail was carefully considered to enhance your experience. So while its display is larger, the phone feels just right.</p>
+                              </div>
+                        </div>
+                    </div> <!-- end col-md-6 -->
+               </div>
+           </div>
+    </div><!-- section -->
+    <!--FOOTER --> 
+        <hr>
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <div class="copyright">
+                    &copy; 2014 Extrara Inc
+                </div>
+                    
+                </nav>
+                <div class="social-area pull-right">                
+                    <a class="btn btn-social btn-facebook btn-simple">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-social btn-pinterest btn-simple">
+                        <i class="fa fa-google-plus-square"></i>
+                    </a>
+                </div>
+               
             </div>
-
-    <!--<div class="form-group string optional project_des"><label class="string optional control-label" for="project_des">Location</label><input class="string optional form-control" id="project_des" name="project[des]" type="text" /></div>
-          Create Dropdown for Country-->
-
- <label class=" control-label" for="selectbasic">Location</label>
-            <div class="">
-              <select id="selectbasic" name="selectbasic" class="form-control">  
-              <option value=""></option> 
-              <option value="AF">Afghanistan</option>
-              <option value="AX">Åland Islands</option>
-              <option value="AL">Albania</option>
-              <option value="DZ">Algeria</option>
-              <option value="AS">American Samoa</option>
-              <option value="AD">Andorra</option>
-              <option value="AO">Angola</option>
-              <option value="AI">Anguilla</option>
-              <option value="AQ">Antarctica</option>
-              <option value="AG">Antigua and Barbuda</option>
-              <option value="AM">Armenia</option>
-              <option value="AR">Argentina</option>
-              <option value="AW">Aruba</option>
-              <option value="AU">Australia</option>
-              <option value="AT">Austria</option>
-              <option value="AZ">Azerbaijan</option>
-              <option value="BS">Bahamas</option>
-              <option value="BH">Bahrain</option>
-              <option value="BD">Bangladesh</option>
-              <option value="BB">Barbados</option>
-              <option value="BY">Belarus</option>
-              <option value="BE">Belgium</option>
-              <option value="BZ">Belize</option>
-  <option value="BJ">Benin</option>
-  <option value="BM">Bermuda</option>
-  <option value="BT">Bhutan</option>
-  <option value="BO">Bolivia, Plurinational State of</option>
-  <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-  <option value="BA">Bosnia and Herzegovina</option>
-  <option value="BW">Botswana</option>
-  <option value="BV">Bouvet Island</option>
-  <option value="BR">Brazil</option>
-  <option value="IO">British Indian Ocean Territory</option>
-  <option value="BN">Brunei Darussalam</option>
-  <option value="BG">Bulgaria</option>
-  <option value="BF">Burkina Faso</option>
-  <option value="BI">Burundi</option>
-  <option value="KH">Cambodia</option>
-  <option value="CM">Cameroon</option>
-  <option value="CA">Canada</option>
-  <option value="CV">Cape Verde</option>
-  <option value="KY">Cayman Islands</option>
-  <option value="CF">Central African Republic</option>
-  <option value="TD">Chad</option>
-  <option value="CL">Chile</option>
-  <option value="CN">China</option>
-  <option value="CX">Christmas Island</option>
-  <option value="CC">Cocos (Keeling) Islands</option>
-  <option value="CO">Colombia</option>
-  <option value="KM">Comoros</option>
-  <option value="CG">Congo</option>
-  <option value="CD">Congo, the Democratic Republic of the</option>
-  <option value="CK">Cook Islands</option>
-  <option value="CR">Costa Rica</option>
-  <option value="CI">Côte d'Ivoire</option>
-  <option value="HR">Croatia</option>
-  <option value="CU">Cuba</option>
-  <option value="CW">Curaçao</option>
-  <option value="CY">Cyprus</option>
-  <option value="CZ">Czech Republic</option>
-  <option value="DK">Denmark</option>
-  <option value="DJ">Djibouti</option>
-  <option value="DM">Dominica</option>
-  <option value="DO">Dominican Republic</option>
-  <option value="EC">Ecuador</option>
-  <option value="EG">Egypt</option>
-  <option value="SV">El Salvador</option>
-  <option value="GQ">Equatorial Guinea</option>
-  <option value="ER">Eritrea</option>
-  <option value="EE">Estonia</option>
-  <option value="ET">Ethiopia</option>
-  <option value="FK">Falkland Islands (Malvinas)</option>
-  <option value="FO">Faroe Islands</option>
-  <option value="FJ">Fiji</option>
-  <option value="FI">Finland</option>
-  <option value="FR">France</option>
-  <option value="GF">French Guiana</option>
-  <option value="PF">French Polynesia</option>
-  <option value="TF">French Southern Territories</option>
-  <option value="GA">Gabon</option>
-  <option value="GM">Gambia</option>
-  <option value="GE">Georgia</option>
-  <option value="DE">Germany</option>
-  <option value="GH">Ghana</option>
-  <option value="GI">Gibraltar</option>
-  <option value="GR">Greece</option>
-  <option value="GL">Greenland</option>
-  <option value="GD">Grenada</option>
-  <option value="GP">Guadeloupe</option>
-  <option value="GU">Guam</option>
-  <option value="GT">Guatemala</option>
-  <option value="GG">Guernsey</option>
-  <option value="GN">Guinea</option>
-  <option value="GW">Guinea-Bissau</option>
-  <option value="GY">Guyana</option>
-  <option value="HT">Haiti</option>
-  <option value="HM">Heard Island and McDonald Islands</option>
-  <option value="VA">Holy See (Vatican City State)</option>
-  <option value="HN">Honduras</option>
-  <option value="HK">Hong Kong</option>
-  <option value="HU">Hungary</option>
-  <option value="IS">Iceland</option>
-  <option value="IN">India</option>
-  <option value="ID">Indonesia</option>
-  <option value="IR">Iran, Islamic Republic of</option>
-  <option value="IQ">Iraq</option>
-  <option value="IE">Ireland</option>
-  <option value="IM">Isle of Man</option>
-  <option value="IL">Israel</option>
-  <option value="IT">Italy</option>
-  <option value="JM">Jamaica</option>
-  <option value="JP">Japan</option>
-  <option value="JE">Jersey</option>
-  <option value="JO">Jordan</option>
-  <option value="KZ">Kazakhstan</option>
-  <option value="KE">Kenya</option>
-  <option value="KI">Kiribati</option>
-  <option value="KP">Korea, Democratic People's Republic of</option>
-  <option value="KR">Korea, Republic of</option>
-  <option value="KW">Kuwait</option>
-  <option value="KG">Kyrgyzstan</option>
-  <option value="LA">Lao People's Democratic Republic</option>
-  <option value="LV">Latvia</option>
-  <option value="LB">Lebanon</option>
-  <option value="LS">Lesotho</option>
-  <option value="LR">Liberia</option>
-  <option value="LY">Libya</option>
-  <option value="LI">Liechtenstein</option>
-  <option value="LT">Lithuania</option>
-  <option value="LU">Luxembourg</option>
-  <option value="MO">Macao</option>
-  <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-  <option value="MG">Madagascar</option>
-  <option value="MW">Malawi</option>
-  <option value="MY">Malaysia</option>
-  <option value="MV">Maldives</option>
-  <option value="ML">Mali</option>
-  <option value="MT">Malta</option>
-  <option value="MH">Marshall Islands</option>
-  <option value="MQ">Martinique</option>
-  <option value="MR">Mauritania</option>
-  <option value="MU">Mauritius</option>
-  <option value="YT">Mayotte</option>
-  <option value="MX">Mexico</option>
-  <option value="FM">Micronesia, Federated States of</option>
-  <option value="MD">Moldova, Republic of</option>
-  <option value="MC">Monaco</option>
-  <option value="MN">Mongolia</option>
-  <option value="ME">Montenegro</option>
-  <option value="MS">Montserrat</option>
-  <option value="MA">Morocco</option>
-  <option value="MZ">Mozambique</option>
-  <option value="MM">Myanmar</option>
-  <option value="NA">Namibia</option>
-  <option value="NR">Nauru</option>
-  <option value="NP">Nepal</option>
-  <option value="NL">Netherlands</option>
-  <option value="NC">New Caledonia</option>
-  <option value="NZ">New Zealand</option>
-  <option value="NI">Nicaragua</option>
-  <option value="NE">Niger</option>
-  <option value="NG">Nigeria</option>
-  <option value="NU">Niue</option>
-  <option value="NF">Norfolk Island</option>
-  <option value="MP">Northern Mariana Islands</option>
-  <option value="NO">Norway</option>
-  <option value="OM">Oman</option>
-  <option value="PK">Pakistan</option>
-  <option value="PW">Palau</option>
-  <option value="PS">Palestinian Territory, Occupied</option>
-  <option value="PA">Panama</option>
-  <option value="PG">Papua New Guinea</option>
-  <option value="PY">Paraguay</option>
-  <option value="PE">Peru</option>
-  <option value="PH">Philippines</option>
-  <option value="PN">Pitcairn</option>
-  <option value="PL">Poland</option>
-  <option value="PT">Portugal</option>
-  <option value="PR">Puerto Rico</option>
-  <option value="QA">Qatar</option>
-  <option value="RE">Réunion</option>
-  <option value="RO">Romania</option>
-  <option value="RU">Russian Federation</option>
-  <option value="RW">Rwanda</option>
-  <option value="BL">Saint Barthélemy</option>
-  <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-  <option value="KN">Saint Kitts and Nevis</option>
-  <option value="LC">Saint Lucia</option>
-  <option value="MF">Saint Martin (French part)</option>
-  <option value="PM">Saint Pierre and Miquelon</option>
-  <option value="VC">Saint Vincent and the Grenadines</option>
-  <option value="WS">Samoa</option>
-  <option value="SM">San Marino</option>
-  <option value="ST">Sao Tome and Principe</option>
-  <option value="SA">Saudi Arabia</option>
-  <option value="SN">Senegal</option>
-  <option value="RS">Serbia</option>
-  <option value="SC">Seychelles</option>
-  <option value="SL">Sierra Leone</option>
-  <option value="SG">Singapore</option>
-  <option value="SX">Sint Maarten (Dutch part)</option>
-  <option value="SK">Slovakia</option>
-  <option value="SI">Slovenia</option>
-  <option value="SB">Solomon Islands</option>
-  <option value="SO">Somalia</option>
-  <option value="ZA">South Africa</option>
-  <option value="GS">South Georgia and the South Sandwich Islands</option>
-  <option value="SS">South Sudan</option>
-  <option value="ES">Spain</option>
-  <option value="LK">Sri Lanka</option>
-  <option value="SD">Sudan</option>
-  <option value="SR">Suriname</option>
-  <option value="SJ">Svalbard and Jan Mayen</option>
-  <option value="SZ">Swaziland</option>
-  <option value="SE">Sweden</option>
-  <option value="CH">Switzerland</option>
-  <option value="SY">Syrian Arab Republic</option>
-  <option value="TW">Taiwan, Province of China</option>
-  <option value="TJ">Tajikistan</option>
-  <option value="TZ">Tanzania, United Republic of</option>
-  <option value="TH">Thailand</option>
-  <option value="TL">Timor-Leste</option>
-  <option value="TG">Togo</option>
-  <option value="TK">Tokelau</option>
-  <option value="TO">Tonga</option>
-  <option value="TT">Trinidad and Tobago</option>
-  <option value="TN">Tunisia</option>
-  <option value="TR">Turkey</option>
-  <option value="TM">Turkmenistan</option>
-  <option value="TC">Turks and Caicos Islands</option>
-  <option value="TV">Tuvalu</option>
-  <option value="UG">Uganda</option>
-  <option value="UA">Ukraine</option>
-  <option value="AE">United Arab Emirates</option>
-  <option value="GB">United Kingdom</option>
-  <option value="US">United States</option>
-  <option value="UM">United States Minor Outlying Islands</option>
-  <option value="UY">Uruguay</option>
-  <option value="UZ">Uzbekistan</option>
-  <option value="VU">Vanuatu</option>
-  <option value="VE">Venezuela, Bolivarian Republic of</option>
-  <option value="VN">Viet Nam</option>
-  <option value="VG">Virgin Islands, British</option>
-  <option value="VI">Virgin Islands, U.S.</option>
-  <option value="WF">Wallis and Futuna</option>
-  <option value="EH">Western Sahara</option>
-  <option value="YE">Yemen</option>
-  <option value="ZM">Zambia</option>
-  <option value="ZW">Zimbabwe</option>
-  
-</select>
-            </div>
-          </div>
-
-
-   <!-- <div class="form-group string optional project_s2"><label class="string optional control-label" for="project_s2">S2</label><input class="string optional form-control" id="project_s2" name="project[s2]" type="text" /></div>
-    <div class="form-group string optional project_s3"><label class="string optional control-label" for="project_s3">S3</label><input class="string optional form-control" id="project_s3" name="project[s3]" type="text" /></div>
-    <div class="form-group string optional project_s4"><label class="string optional control-label" for="project_s4">S4</label><input class="string optional form-control" id="project_s4" name="project[s4]" type="text" /></div>
-    <div class="form-group string optional project_s5"><label class="string optional control-label" for="project_s5">S5</label><input class="string optional form-control" id="project_s5" name="project[s5]" type="text" /></div>-->
-  
-  <div class="form-actions">
-
-    <div class="field">
-    <%= f.label :avatar %>
-   <%= f.file_field :avatar %>
-  </div>
-
-  <p></p>
-   <%= f.button :submit %>
-<% end %>
-
-  </div>
-</form>
-
-</div>
-<hr>
-<div class="container">
-<div class="row">
-        <div class="project-help">
-          <h3>Project Guidebook</h3>
-          <p>Check out our Guidebook for some help getting started.</p>
-          <p><a class="btn btn-default" href="#" role="button">More</a></p>
-       </div>
-        <div class="project-help">
-          <h3>Our Rules</h3>
-          <p>A few simple rules for your new project.</p>
-          <p><a class="btn btn-default" href="#" role="button">More</a></p>
-       </div>
-        <div class="project-help">
-          <h3>Terms</h3>
-          <p>Donec sed odio dui.</p>
-          <p><a class="btn btn-default" href="#" role="button">More</a></p>
-        </div>
-      </div>
-
+        </footer>
+        
     </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
 
-      <hr>
-      <footer>
-        <p>&copy; EXTRARA 2015</p>
-      </footer>
-
-      </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
 </html>
