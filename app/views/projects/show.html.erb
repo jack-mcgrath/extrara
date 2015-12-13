@@ -137,9 +137,10 @@
                         <div class="media">
                               <a class="pull-left" href="#">
                                <div class="avatar">
-                                    <% if @project.user.present? %>
-                            <%=image_tag @project.try(:user).try(:avatar).url(:thumb)%>
+                                <% if @project.user.present? %>
+                            <%=image_tag @project.try(:user).try(:avatar).url(:thumb), :class=>"media-object"%>
                           <% end %>
+                                    <img class="media-object" src="assets/img/exprofile.png" alt="...">
                                </div>
                               </a>
                               <div class="media-body">
