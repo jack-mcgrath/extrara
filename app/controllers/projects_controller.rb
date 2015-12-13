@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
     if @project.save
-        redirect_to projects_path, :notice => "Your post has been saved"
+        redirect_to @project, :notice => "Your post has been saved"
     end
   end
 
