@@ -70,7 +70,9 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="image">
-                                <img src="/images/pbg.jpg" alt="..." />
+                                <%if project.avatar%>
+                                <%=image_tag project.avatar.url(:medium)%>
+                                <%end%>
                                 <div class="filter">
                                     <button type="button" class="btn btn-neutral btn-simple">
                                         <i class="fa fa-bookmark-o"></i> Bookmark
