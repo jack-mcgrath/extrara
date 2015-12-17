@@ -65,7 +65,7 @@
                <hr>
                <div class="row">
                 <%if @projects %>
-                    <%@projects.limit(9).each do |project|%>
+                    <%@projects.last(9).reverse.each do |project|%>
 
                     <div class="col-md-4">
                         <div class="card">
