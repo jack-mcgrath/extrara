@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
     }
     
     # Validate the attached image is image/jpg, image/png, etc
+    has_attached_file :avatar, styles: { medium: "300x300>", small: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/,
     :storage => :s3,
     :s3_credentials => "#{Rails.root}/config/s3.yml",
