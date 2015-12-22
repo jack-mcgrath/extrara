@@ -24,24 +24,24 @@
   <%= devise_error_messages! %>
 </br>
   <div class="field">
-    <%= f.text_field :firstname, autofocus: true, placeholder: "first name" %>
+    <%= f.text_field :firstname, autofocus: true, placeholder: " first name" %>
   </div></br>
   <div class="field">
-    <%= f.text_field :lastname, autofocus: true, placeholder: "last name" %>
+    <%= f.text_field :lastname, autofocus: true, placeholder: " last name" %>
   </div></br>
 <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+    <%= f.email_field :email, autofocus: true, placeholder: " email" %>
   </div>
 
   <div class="field"></br>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: " password" %>
   </div></br>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "cofirm password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: " confirm password" %>
   </div>
   <div class="actions">
     <%= f.submit "Sign up" %>
