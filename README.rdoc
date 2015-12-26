@@ -1,4 +1,9 @@
 == README
+if postgres isn't working, run
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

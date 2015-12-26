@@ -3,3 +3,4 @@ messages database
 adding messagable to user table
 projects followable added to table
 project functionality (updating, deleting, creating, reading
+project header image, options, and default hd images

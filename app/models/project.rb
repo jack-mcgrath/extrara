@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
     belongs_to :user
-
+    
     has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',

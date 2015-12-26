@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223023223) do
+ActiveRecord::Schema.define(version: 20151226044941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,9 @@ ActiveRecord::Schema.define(version: 20151223023223) do
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
   create_table "projects", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
     t.string   "title"
     t.string   "subtitle"
     t.string   "des"
@@ -175,9 +178,6 @@ ActiveRecord::Schema.define(version: 20151223023223) do
     t.string   "s3"
     t.string   "s4"
     t.string   "s5"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 20151223023223) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "project"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -239,5 +240,11 @@ ActiveRecord::Schema.define(version: 20151223023223) do
 
   add_index "uses", ["email"], name: "index_uses_on_email", unique: true, using: :btree
   add_index "uses", ["reset_password_token"], name: "index_uses_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", name: "mb_opt_outs_on_conversations_id", column: "conversation_id"
+
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", name: "notifications_on_conversation_id", column: "conversation_id"
+
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", name: "receipts_on_notification_id", column: "notification_id"
 
 end

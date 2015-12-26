@@ -9,6 +9,13 @@ Rails.application.routes.draw do
 
   resources :projects
   devise_for :users
+  resources :conversations, only: [:index, :show, :new, :create] do
+      member do
+          post :reply
+          post :trash
+          post :untrash
+      end
+  end
   get 'users/:id' => 'users#show', as: :user
   get 'projects/new' => 'projects#new' 
   get 'projects' => 'projects#index'

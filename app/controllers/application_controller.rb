@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   def forem_name
       firstname
   end
+  rescue_from ActiveRecord::RecordNotFound do
+  flash[:warning] = 'Resource not found.'
+  redirect_back_or root_path
+end
+
+def redirect_back_or(path)
+    redirect_to request.referer || path
+end
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
