@@ -48,3 +48,4 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'kaminari'
 gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 gem 'mailboxer'
+gem 'haml'

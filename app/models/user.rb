@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects, dependent: :destroy
+  acts_as_messageable
   def forem_name
       name
   end
@@ -14,6 +15,9 @@ class User < ActiveRecord::Base
   end
   def fullname
       [firstname, lastname].join(' ')
+  end
+  def mailboxer_email(object)
+      name
   end
   has_attached_file :avatar, styles: { medium: "300x300>", small: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/,
