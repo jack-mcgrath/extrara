@@ -3944,6 +3944,6 @@ google.maps.__gjsload__('util', '\'use strict\';var nH=Number,oH=Boolean;functio
 
 
 
-
+$(document).on('page:load', ready);
 
 ;

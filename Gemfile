@@ -49,3 +49,4 @@ gem 'kaminari'
 gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 gem 'mailboxer'
 gem 'haml'
+gem 'jquery-turbolinks'
