@@ -26,31 +26,7 @@
   <body>
 
     <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-              <!--  <a class="navbar-brand navbar-link" href="#"> <img src="assets/img/Extrarablk2.png" height="15"></a>-->
-              <%=link_to image_tag("https://s3-us-west-1.amazonaws.com/extrara-images/images/logo/Extrarablk2.png", :class=>"logo"), root_path, "data-no-turbolink" =>
-true%>
-                <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
-            </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"><a href="/forums/">Discover </a></li>
-                    <li role="presentation"><a href="/projects/new">Create </a></li>
-                </ul>
-                <ul class="nav navbar-nav drop-nav" id="dp-nav">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Profile<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Edit Profile </a></li>
-                            <li><a href="#">Inbox </a></li>
-                            <li class="divider"></li>
-                            <li><%= link_to 'Sign out!', destroy_user_session_path %>                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<%=render 'welcome/header'%>
    <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
