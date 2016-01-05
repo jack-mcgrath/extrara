@@ -2,6 +2,10 @@
 %ul
   = content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt|
     - message = receipt.message
+    - sender = User.find(receipt.notification.sender_id)
+    <h2>From:
+    = sender.fullname
+    </h2>
     %h3= message.subject
     %p= message.body
 = render 'messages/form', conversation: conversation
