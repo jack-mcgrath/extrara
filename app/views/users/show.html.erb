@@ -12,12 +12,12 @@
 
     <title>Proile</title>
 
-    <link href="bootstrap3.min.css" rel="stylesheet" />
+   <!-- <link href="bootstrap3.min.css" rel="stylesheet" />
     <link href="/stylesheets/gsdk.css" rel="stylesheet"/>
     
     <link href="demo.css" rel="stylesheet" />
     <link href="usercss.css" rel="stylesheet" />
- <link href="bootstrap.css" rel="stylesheet">
+ <link href="bootstrap.css" rel="stylesheet">-->
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -83,7 +83,7 @@
                     
     </div>
     <div class="container">
-        <div class="name-container">
+        <div>
           <div class="user-name">Hi, I'm <%=@user.fullname%><br><small></small></div>
 
       </div>
@@ -106,20 +106,10 @@
                 <h3 class="page-header">What I'm Working On:</h3>
             </div>
             <%if @projects %>
-          <%@projects.each do |project|%>
-          <div class="container">
-          <div class="row">
-          <div class="col-md-4">
-          <div class="thumbnail">
-            <img src="/images/pbg.jpg" alt="..." />
-          <h2 class="lessm"><%=link_to (project.title), project_path(project)%></h2>
-          <p><%=project.des%></p>
-
-          <p><a class="btn btn-default" href="#" role="button">Explore &raquo;</a></p>
-          </div>
-       </div>
-        <%end%>
-        <%end%>
+              <%@projects.each do |project|%>
+               <%=render 'welcome/card', project: project%>
+              <%end%>
+           <%end%>
       </div>
     
       <hr>

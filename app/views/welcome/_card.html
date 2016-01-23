@@ -1,0 +1,37 @@
+<div class="col-md-4">
+    <div class="card">
+        <div class="image">
+            <%if project.avatar%>
+            <%=image_tag project.avatar.url(:medium)%>
+            <%end%>
+            <div class="filter">
+                <button type="button" class="btn btn-neutral btn-simple">
+                    <i class="fa fa-bookmark-o"></i> Bookmark
+                </button>
+                <button type="button" class="btn btn-neutral btn-simple">
+                    <i class="fa fa-align-left"></i> Read Project
+                </button>
+            </div>
+        </div>
+        <div class="content">
+            <p class="category"><%=link_to (truncate(project.title, length: 20, separator: ' ')), project_path(project),"data-no-turbolink" => true%></p>
+            <a class="card-link" href="#">
+                <h4 class="title"><%=truncate(project.des, length: 20, separator: ' ')%></h4>
+                 <%if project.des==""%>
+                      <h4 class="title"><%="No description yet."%></h4>
+                 <%end%>  
+            </a>
+             <div class="footer">
+                <div class="author">
+                    <a class="card-link" href="#">
+                       <%= image_tag project.try(:user).try(:avatar).try(:url, :small),:class => "avatar" %>
+                       <span><%= link_to(project.try(:user).try(:fullname),user_path(project.try(:user).try(:id)),"data-no-turbolink" => true) %></span>
+                    </a>
+                </div>
+                <div class="stats pull-right">
+                    <i class="fa fa-heart"></i> 42
+                </div>
+            </div>
+        </div>
+    </div> 
+</div> 

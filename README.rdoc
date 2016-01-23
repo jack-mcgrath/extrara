@@ -1,8 +1,7 @@
 == README
-if postgres isn't working, run
+if postgres isn't working, shut down server and run:
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
-
-
+then start server again :^)
 
 
 This README would normally document whatever steps are necessary to get the

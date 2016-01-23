@@ -24,11 +24,9 @@
 <body>
     <%=render 'welcome/header'%>
     <div class="jumbotron hero-technology">
-
-
         <h1 class="hero-title">Welcome to Extrara</h1>
         <p class="hero-subtitle">Our mission is to change the way the space industry leverages human interconnectivity</p>
-        <div class ="buttonstuff">
+        <div class ="buttonstuff hero-subtitle">
             <%=link_to('Create Project', new_project_path,  class: "btn btn-primary btn-lg hero-button hero-subtitle", "data-no-turbolink" => true)%>
 
         </div>
@@ -43,44 +41,7 @@
                <div class="row">
                 <%if @projects %>
                     <%@projects.last(9).reverse.each do |project|%>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="image">
-                                <%if project.avatar%>
-                                <%=image_tag project.avatar.url(:medium)%>
-                                <%end%>
-                                <div class="filter">
-                                    <button type="button" class="btn btn-neutral btn-simple">
-                                        <i class="fa fa-bookmark-o"></i> Bookmark
-                                    </button>
-                                    <button type="button" class="btn btn-neutral btn-simple">
-                                        <i class="fa fa-align-left"></i> Read Project
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <p class="category"><%=link_to (truncate(project.title, length: 20, separator: ' ')), project_path(project),"data-no-turbolink" => true%></p>
-                                <a class="card-link" href="#">
-                                    <h4 class="title"><%=truncate(project.des, length: 20, separator: ' ')%></h4>
-                                     <%if project.des==""%>
-                                          <h4 class="title"><%="no description yet"%></h4>
-                                     <%end%>  
-                                </a>
-                                 <div class="footer">
-                                    <div class="author">
-                                        <a class="card-link" href="#">
-                                           <%= image_tag project.try(:user).try(:avatar).try(:url, :small),:class => "avatar" %>
-                                           <span><%= link_to(project.try(:user).try(:fullname),user_path(project.try(:user).try(:id)),"data-no-turbolink" => true) %></span>
-                                        </a>
-                                    </div>
-                                    <div class="stats pull-right">
-                                        <i class="fa fa-heart"></i> 42
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end card -->
-                    </div> 
+                        <%=render 'welcome/card', project: project%>
                     <%end%>
                     <%end%>
 

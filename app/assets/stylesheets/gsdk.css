@@ -2015,6 +2015,8 @@ fieldset[disabled] .form-control {
   font-size: 20px;
 }
 .navbar .navbar-nav > li > a {
+  font-size: 18px;
+  font-weight: 400;
   padding: 10px 15px;
   margin: 15px 3px;
 }
