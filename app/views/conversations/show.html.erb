@@ -1,16 +1,13 @@
-<h1>
+<%=render "welcome/header"%>
+<h1 class="convo-subject">
   <%= conversation.subject %>
 </h1>
 <ul>
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+  <%= content_tag_for(:li, conversation.receipts_for(current_user).reverse) do |receipt| %>
     <% message = receipt.message %>
     <% sender = User.find(receipt.notification.sender_id) %>
     <h3>
       <%= link_to sender.fullname, user_path(sender.id), "data-no-turbolink" => "true" %>
-    </h3>
-    </h2>
-    <h3>
-      <%= message.subject %>
     </h3>
     <p>
       <%= message.body %>

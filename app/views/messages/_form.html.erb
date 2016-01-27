@@ -1,0 +1,10 @@
+<div class="form-message">
+	<%= simple_form_for :message, url: reply_conversation_path(conversation) do |f| %>
+	  <%= f.hidden_field :subject, value: conversation.subject %>
+	  <%= f.input :body, :label=>"Reply", :as=>:text, :input_html => { :rows => 6 } %>
+	  <div class="form-actions">
+	    <%= f.button :submit, class: 'btn' %>
+	    <%= submit_tag 'Cancel', type: :reset, class: 'btn btn-danger' %>
+	  </div>
+	<% end %>
+</div>
