@@ -26,7 +26,10 @@ class ConversationsController < ApplicationController
     conversation.untrash(current_user)
     redirect_to :conversations
   end
-
+  def new
+      
+      @user = User.find(params[:recid])
+  end
   private
 
   def mailbox

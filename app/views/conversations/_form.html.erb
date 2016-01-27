@@ -1,9 +1,11 @@
 <%= simple_form_for :conversation, url: :conversations do |f| %>
-  <%= f.input :recipients %>
+  <h2>Sending message to <%=link_to @user.fullname.titleize, user_path(@user.id)%></h2>
+    <%=f.hidden_field :recipients, value: @user.id%>
   <%= f.input :subject %>
   <%= f.input :body, as: :text %>
+
   <div class="form-actions">
-    <%= f.button :submit, 'Send', class: 'btn-default' %>
+    <%= f.button :submit,'Send', class: 'btn-default' %>
     <%= f.button :submit, 'Cancel', type: :reset, class: 'btn-danger' %>
   </div>
 <% end %>
