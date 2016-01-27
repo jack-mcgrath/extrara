@@ -85,7 +85,7 @@
     <div class="container">
         <div>
           <div class="user-name">Hi, I'm <%=@user.fullname%><br><small></small></div>
-          <div class= "user-name"><%=link_to "Message me", new_conversation_path(:recid=>@user), method: :post%>
+          <div class= "user-name"><%=button_to "Message me", new_conversation_path, class: "btn btn-message",params:{recid: @user.id}%>
       </div>
       <div class="skills-container">
                         <span><strong>Skills: </strong></span>

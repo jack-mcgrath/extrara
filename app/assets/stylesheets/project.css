@@ -10,6 +10,11 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.btn-message{
+    color: #fff;
+    background-color: #ffa31a;
+    border-color: #ffa31a;
+  }
 body {
   margin: 0;
   padding-top: 70px;
@@ -199,6 +204,10 @@ th {
     background: transparent !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
+  }
+  .btn-message{
+    background-color: #ffa31a;
+    border-color: #ffa31a;
   }
   a,
   a:visited {
@@ -3091,21 +3100,7 @@ fieldset[disabled] .btn-default.active {
   color: #fff;
   background-color: #333;
 }
-.btn-primary {
-  color: #fff;
-  background-color: transparent;
-  border-color: #fff;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
-}
+
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
