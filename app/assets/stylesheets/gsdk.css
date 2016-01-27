@@ -3627,6 +3627,7 @@ fieldset[disabled] .form-control {
   background-color: #FFFFFF;
   margin-bottom: 20px;
   max-height: 390px; 
+  min-height:390px;
 }
 .card .image {
   width: 100%;
