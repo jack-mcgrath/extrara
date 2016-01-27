@@ -1,0 +1,15 @@
+
+<div class="table-responsive" ng-show="!isMessageSelected()">
+    <table class="table table-striped table-hover refresh-container pull-down">
+             <%= content_tag_for(:ul, conversation) do |conversation| %>    
+            <td class="col-sm-3 col-xs-4"><%= link_to conversation.last_sender.fullname, user_path(conversation.last_sender.id) %></span></td>
+            <td class="col-sm-2 col-xs-4" ><%= link_to conversation.subject, conversation_path(conversation) %></span></td>
+            <td class="col-sm-4 col-xs-6" ><%= link_to conversation.subject, conversation_path(conversation) %></span></td>
+            <td class="col-sm-1 col-sm-2" ng-click="readMessage($index)"> <% if conversation.is_completely_trashed?(current_user) %>
+              <%= link_to 'Untrash', untrash_conversation_path(conversation), method: :post %>
+            <% else %>
+              <%= link_to 'Trash', trash_conversation_path(conversation), method: :post %>
+             <% end %></td>
+             <%end%>
+    </table>
+</div>
